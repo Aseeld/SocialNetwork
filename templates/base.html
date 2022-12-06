@@ -1,0 +1,98 @@
+<!-- dwitter/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Include the Bulma CSS framework for styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <title>Dwitter</title>
+  </head>
+  <body >
+    <section class="hero is-small is-success mb-4">
+    <nav class="navbar is-success " role="navigation" aria-label="main navigation" >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'dwitter:dashboard' %}">
+          <img src="{% static "img/dwitter.png" %}" width="112" height="28">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+     
+      <div id="navbarBasicExample" class="navbar-menu">
+       
+        <div class="navbar-start">
+           {% if request.user.is_authenticated %}
+          <a class="navbar-item"  href="{% url 'dwitter:profile' request.user.profile.id %}">
+            My Profile
+          </a>
+          <a class="navbar-item"  href="{% url 'dwitter:profile_list' %}">
+            All Profiles
+          </a>
+          <a class="navbar-item" href="{% url 'password_change' %}">
+            Change Password
+          </a>
+    
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              
+              <div class="is-pulled-right ">
+                 <a class="button is-family-secondary" href="{% url 'logout' %}">
+                   <strong>Logout</strong>
+                   </a>
+               </div>   
+               {%else%}
+                        
+            
+              {% comment %} <a class="button is-family-secondary" href="{% url 'login' %}">
+              <strong>Login</strong>
+              </a>
+              <a class="button is-family-secondary" href="{% url 'register' %}">
+              <strong>Sign up</strong>
+              </a>  {% endcomment %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+	
+  </section>
+
+
+    {% comment %} <section class="hero is-small is-success mb-4">
+      <div class="hero-body"  >
+        <h1 class="title is-1">Dwitter</h1>
+        <p class="subtitle is-4">Your tiny social network built with Django</p>
+       
+      </div>
+     
+         {% if request.user.is_authenticated %}
+         <div class="is-pulled-right ">
+            <a href="{% url 'logout' %}" class="subtitle is-5">Logout</a>
+            <a class="button is-primary" href="{% url 'logout' %}">
+              <strong>Logout</strong>
+              </a>
+          </div>            
+        {% endif %}
+          
+      
+    </section> {% endcomment %}
+    <div class="container">
+      <div class="columns">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>

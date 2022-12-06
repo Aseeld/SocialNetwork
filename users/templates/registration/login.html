@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+   {% comment %} <form method="post ">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button is-success is-fullwidth is-medium mt-5" type="submit">Login</button>
+  </form>  {% endcomment %}
+  <div class="column is-one-quarter"></div>
+<div class="column is-half">
+
+<form method="post">
+    {% csrf_token %}
+<div class="is-fullheight">
+    <div class="hero-body is-justify-content-center is-align-items-center " >
+        <div class="columns is-flex is-flex-direction-column box ">
+            <h2 class="title is-success has-text-centered">Login</h2>
+            <div class="column">
+                <label for="username" class="label ">Username:</label> 
+                <input class="input is-success is-rounded" type="text" name="username"/>
+            </div>
+            <div class="column">
+                 <label for="password" class="label ">Password:</label>
+                <input class="input is-success is-rounded" type="password" name="password" />       
+                <a href="{% url 'password_reset' %}" class="is-size-8 has-text-success">forget password?</a>
+            </div>
+            <div class="column">
+                <button class="button is-success is-fullwidth is-rounded" type="submit">Login</button>
+                
+            </div>
+            <div class="has-text-centered">
+                <p class="is-size-8"> Don't have an account? <a href="{% url 'register' %}" class="has-text-success">Sign up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+</div>
+
+
+  
+
+{% endblock %}
