@@ -21,24 +21,29 @@ User can:
 
 # screenshots:
 ---------------------------------
-Registration page
+### Registration page
 ![](screenshots/register.png)
 
 
-Reset Password Page
+### Reset Password Page
 ![](screenshots/passwordreser.png)
 
-Change Password Page
+
+### Change Password Page
 ![](screenshots/changepass.png)
 
-Login page
+
+### Login page
 ![](screenshots/login.png)
 
-Dashboard Page
+
+### Dashboard Page
 ![](screenshots/Dashboard.png)
 
-All profiles Page
-![](screenshots/allprofiles.png)
 
-Profile Page:
+### All profiles Page
+![](screenshots/Allprofiles.png)
+
+
+### Profile Page:
 ![](screenshots/profile.png)
